@@ -10,6 +10,9 @@ public class Ingridient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    private UnitOfMeasure uom;
+
     private String description;
     private BigDecimal amount;
 
@@ -46,5 +49,13 @@ public class Ingridient {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
+    }
+
+    public UnitOfMeasure getUom() {
+        return uom;
+    }
+
+    public void setUom(UnitOfMeasure uom) {
+        this.uom = uom;
     }
 }
