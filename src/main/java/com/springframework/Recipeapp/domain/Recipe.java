@@ -1,6 +1,7 @@
 package com.springframework.Recipeapp.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Recipe {
@@ -21,6 +22,8 @@ public class Recipe {
     @Lob
     private Byte[] image;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private Set<Ingridient> ingridients;
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
